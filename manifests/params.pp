@@ -1,5 +1,9 @@
 class squid::params {
 
+  $package_name = 'squid'
+
+  $config_file = '/etc/squid/squid.conf'
+
   case $::osfamily
   {
     'redhat':
