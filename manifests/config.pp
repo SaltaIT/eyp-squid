@@ -11,13 +11,13 @@ class squid::config inherits squid {
     mode    => '0640',
   }
 
-  concat::fragment{ "$squid::params::config_file header":
+  concat::fragment{ "${squid::params::config_file} header":
     target  => $squid::params::config_file,
     order   => '00',
     content => template("${module_name}/squidconf_header.erb"),
   }
 
-  concat::fragment{ "$squid::params::config_file tail":
+  concat::fragment{ "${squid::params::config_file} tail":
     target  => $squid::params::config_file,
     order   => '99',
     content => template("${module_name}/squidconf_tail.erb"),
