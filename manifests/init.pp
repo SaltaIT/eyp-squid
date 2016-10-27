@@ -4,6 +4,7 @@
 #
 class squid (
               $port                          = '3128',
+              $disable_cache                 = true,
               $httpd_suppress_version_string = true,
               $add_via_header                = false,
               $add_forwarded_for_header      = false,

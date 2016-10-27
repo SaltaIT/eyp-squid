@@ -5,6 +5,11 @@
 # Squid normally listens to port 3128
 http_port <%= @port %>
 
+# cache
+<%- if @disable_cache -%>
+cache deny all
+<%- end -%>
+
 # visibility options:
 httpd_suppress_version_string <%= scope.function_bool2onoff([@httpd_suppress_version_string]) %>
 via <%= scope.function_bool2onoff([@add_via_header]) %>
