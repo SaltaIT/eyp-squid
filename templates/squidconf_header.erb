@@ -27,9 +27,11 @@ coredump_dir <%= @coredump_dir %>
 # localhost
 acl localhost src 127.0.0.0/8
 
-# Example rule allowing access from your local networks.
+<%- if defined?(@localnet) -%>
+# local networks
 <% @localnet.each do | value | -%>
 acl localnet src <%= value %>
+<% end -%>
 <% end -%>
 
 # SSL ports

@@ -2,7 +2,9 @@
 # Example rule allowing access from your local networks.
 # Adapt localnet in the ACL section to list your (internal) IP networks
 # from where browsing should be allowed
+<% if defined?(@localnet) -%>
 http_access <%= @localnet_action %> localnet
+<% end -%>
 http_access <%= @localhost_action %> localhost
 
 # And finally deny all other access to this proxy
