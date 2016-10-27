@@ -1,36 +1,43 @@
 #
-# Recommended minimum configuration:
+# puppet managed file
 #
+
+# Squid normally listens to port 3128
+http_port <%= @port %>
+
+# visibility options:
+httpd_suppress_version_string <%= scope.function_bool2onoff([@httpd_suppress_version_string]) %>
+via <%= scope.function_bool2onoff([@add_via_header]) %>
+forwarded_for <%= scope.function_bool2onoff([@add_forwarded_for_header]) %>
+
+# Uncomment and adjust the following to add a disk cache directory.
+#cache_dir ufs /var/spool/squid 100 16 256
+
+# Leave coredumps in the first cache dir
+coredump_dir <%= @coredump_dir %>
 
 # Example rule allowing access from your local networks.
-# Adapt to list your (internal) IP networks from where browsing
-# should be allowed
-acl localnet src 10.0.0.0/8	# RFC1918 possible internal network
-acl localnet src 172.16.0.0/12	# RFC1918 possible internal network
-acl localnet src 192.168.0.0/16	# RFC1918 possible internal network
-acl localnet src fc00::/7       # RFC 4193 local private network range
-acl localnet src fe80::/10      # RFC 4291 link-local (directly plugged) machines
+<% @localnet.each do | value | -%>
+acl localnet src <%= value %>
+<% end -%>
 
-acl SSL_ports port 443
-acl Safe_ports port 80		# http
-acl Safe_ports port 21		# ftp
-acl Safe_ports port 443		# https
-acl Safe_ports port 70		# gopher
-acl Safe_ports port 210		# wais
-acl Safe_ports port 1025-65535	# unregistered ports
-acl Safe_ports port 280		# http-mgmt
-acl Safe_ports port 488		# gss-http
-acl Safe_ports port 591		# filemaker
-acl Safe_ports port 777		# multiling http
+# SSL ports
+<% @ssl_ports.each do | value | -%>
+acl SSL_ports port <%= value %>
+<% end -%>
+
+# safe ports
+<% @safe_ports.each do | value | -%>
+acl Safe_ports port <%= value %>
+<% end -%>
+
+# CONNECT
 acl CONNECT method CONNECT
 
-#
-# Recommended minimum Access Permission configuration:
-#
-# Deny requests to certain unsafe ports
-http_access deny !Safe_ports
+# requests to unsafe ports
+http_access <%= @unsafeports_action %> !Safe_ports
 
-# Deny CONNECT to other than secure SSL ports
+# CONNECT to other than secure SSL ports
 http_access deny CONNECT !SSL_ports
 
 # Only allow cachemgr access from localhost
@@ -49,20 +56,11 @@ http_access deny manager
 # Example rule allowing access from your local networks.
 # Adapt localnet in the ACL section to list your (internal) IP networks
 # from where browsing should be allowed
-http_access allow localnet
-http_access allow localhost
+http_access <%= @localnet_action %> localnet
+http_access <%= @localhost_action %> localhost
 
 # And finally deny all other access to this proxy
-http_access deny all
-
-# Squid normally listens to port 3128
-http_port <%= @port %>
-
-# Uncomment and adjust the following to add a disk cache directory.
-#cache_dir ufs /var/spool/squid 100 16 256
-
-# Leave coredumps in the first cache dir
-coredump_dir /var/spool/squid
+http_access <%= @default_action %> all
 
 #
 # Add any of your own refresh_pattern entries above these.
