@@ -7,6 +7,7 @@ class squid (
               $httpd_suppress_version_string = true,
               $add_via_header                = false,
               $add_forwarded_for_header      = false,
+              $strip_query_terms             = true,
               $coredump_dir                  = '/var/spool/squid',
               $localnet                      = [ '10.0.0.0/8', '172.16.0.0/12', '192.168.0.0/16', 'fc00::/7', 'fe80::/10' ],
               $ssl_ports                     = [ '443' ],

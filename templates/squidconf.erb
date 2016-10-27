@@ -10,6 +10,9 @@ httpd_suppress_version_string <%= scope.function_bool2onoff([@httpd_suppress_ver
 via <%= scope.function_bool2onoff([@add_via_header]) %>
 forwarded_for <%= scope.function_bool2onoff([@add_forwarded_for_header]) %>
 
+# query options logging
+strip_query_terms <%= scope.function_bool2onoff([@strip_query_terms]) %>
+
 # Uncomment and adjust the following to add a disk cache directory.
 #cache_dir ufs /var/spool/squid 100 16 256
 
