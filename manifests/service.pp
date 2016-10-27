@@ -15,7 +15,10 @@ class squid::service inherits squid {
   {
     if($squid::manage_service)
     {
-      #service or exec here
+      service { $squid::params::service_name:
+        ensure => $service_ensure,
+        enable => $service_enable,
+      }
     }
   }
 }

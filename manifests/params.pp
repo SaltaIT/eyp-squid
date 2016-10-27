@@ -1,6 +1,7 @@
 class squid::params {
 
   $package_name = 'squid'
+  $service_name = 'squid'
 
   $config_file = '/etc/squid/squid.conf'
 
