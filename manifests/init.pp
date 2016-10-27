@@ -3,7 +3,7 @@
 # === squid documentation
 #
 class squid (
-              $port                          = '3128',
+              $port                          = '0.0.0.0:3128',
               $disable_cache                 = true,
               $httpd_suppress_version_string = true,
               $add_via_header                = false,
