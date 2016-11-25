@@ -35,6 +35,7 @@ define squid::domain(
       owner  => 'root',
       group  => 'root',
       mode   => '0644',
+      notify => Class['::squid::service'],
     }
 
     concat::fragment{ "${squid::params::config_file} ${action} ${fragment_order}":
