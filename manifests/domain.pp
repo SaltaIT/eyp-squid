@@ -28,7 +28,7 @@ define squid::domain(
       $fragment_order=$order
   }
 
-  if(!defined(File["${squid::config_dir}/squid.${action}.acl"]))
+  if(!defined(Concat["${squid::config_dir}/squid.${action}.acl"]))
   {
     concat { "${squid::config_dir}/squid.${action}.acl":
       ensure => 'present',
