@@ -1,7 +1,6 @@
 class squid::params {
 
   $package_name = 'squid'
-  $service_name = 'squid'
 
   $config_dir = '/etc/squid'
 
@@ -9,6 +8,7 @@ class squid::params {
   {
     'redhat':
     {
+      $service_name = 'squid'
       $config_file = '/etc/squid/squid.conf'
       case $::operatingsystemrelease
       {
@@ -27,6 +27,7 @@ class squid::params {
     }
     'Debian':
     {
+      $service_name = 'squid3'
       $config_file = '/etc/squid3/squid.conf'
       case $::operatingsystem
       {
