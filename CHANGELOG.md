@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.3
+
+* manager access rules (squidclient)
+
 ## 0.1.2
 
 * added **squid::domain**

@@ -25,6 +25,8 @@ class squid (
               $manage_docker_service         = true,
               $service_ensure                = 'running',
               $service_enable                = true,
+              $manager_allow                 = [ 'localhost' ],
+              $manager_default_rule          = 'deny',
             ) inherits squid::params{
 
   class { '::squid::install': } ->

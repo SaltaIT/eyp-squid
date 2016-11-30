@@ -53,6 +53,13 @@ http_access <%= @unsafeports_action %> !Safe_ports
 # CONNECT to other than secure SSL ports
 http_access deny CONNECT !SSL_ports
 
+# MANAGER
+# Only allow cachemgr access from localhost
+<% @manager_allow.each do | val | -%>
+http_access allow <%= val %> manager
+<% end -%>
+http_access <%= @manager_default_rule %> manager
+
 #
 # TODO: extra rules
 #
