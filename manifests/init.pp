@@ -27,6 +27,7 @@ class squid (
               $service_enable                = true,
               $manager_allow                 = [ 'localhost' ],
               $manager_default_rule          = 'deny',
+              $install_client                = true,
             ) inherits squid::params{
 
   class { '::squid::install': } ->
