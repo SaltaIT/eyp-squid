@@ -12,8 +12,14 @@ class squid::params {
     {
       case $::operatingsystemrelease
       {
-        /^[5-7].*$/:
+        /^[5-6].*$/:
         {
+          $builtin_acls = false
+          $client_package_name = undef
+        }
+        /^7.*$/:
+        {
+          $builtin_acls = true
           $client_package_name = undef
         }
         default: { fail("Unsupported RHEL/CentOS version! - ${::operatingsystemrelease}")  }
@@ -29,6 +35,7 @@ class squid::params {
           {
             /^14.*$/:
             {
+              $builtin_acls = true
               $client_package_name = 'squidclient'
             }
             default: { fail("Unsupported Ubuntu version! - ${::operatingsystemrelease}")  }

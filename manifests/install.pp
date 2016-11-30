@@ -17,7 +17,7 @@ class squid::install inherits squid {
       {
         package { $squid::params::client_package_name:
           ensure => $squid::package_ensure,
-        }  
+        }
       }
     }
   }

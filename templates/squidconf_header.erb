@@ -28,8 +28,13 @@ coredump_dir <%= @coredump_dir %>
 visible_hostname = <%= @visible_hostname %>
 <% end -%>
 
+<% if !@builtin_acls -%>
 # localhost
 acl localhost src 127.0.0.1
+
+#manager
+acl manager proto cache_object
+<% end -%>
 
 <%- if defined?(@localnet) -%>
 # local networks
