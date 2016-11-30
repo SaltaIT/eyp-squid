@@ -24,8 +24,12 @@ strip_query_terms <%= scope.function_bool2onoff([@strip_query_terms]) %>
 # Leave coredumps in the first cache dir
 coredump_dir <%= @coredump_dir %>
 
+<% if defined?(@visible_hostname) -%>
+visible_hostname = <%= @visible_hostname %>
+<% end -%>
+
 # localhost
-acl localhost src 127.0.0.0/8
+acl localhost src 127.0.0.1
 
 <%- if defined?(@localnet) -%>
 # local networks

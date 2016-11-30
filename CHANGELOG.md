@@ -3,6 +3,7 @@
 ## 0.1.3
 
 * manager access rules (squidclient)
+* added a variable for visible_hostname
 
 ## 0.1.2
 
