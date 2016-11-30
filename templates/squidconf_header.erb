@@ -5,8 +5,8 @@
 # Squid normally listens to port 3128
 http_port <%= @port %>
 
-# cache
 <%- if @disable_cache -%>
+# disable cache
 cache deny all
 <%- end -%>
 
