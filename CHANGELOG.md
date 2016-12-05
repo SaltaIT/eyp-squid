@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.4
+
+* bugfix centos5
+
 ## 0.1.3
 
 * manager access rules (squidclient)
