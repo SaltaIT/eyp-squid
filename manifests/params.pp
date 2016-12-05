@@ -16,12 +16,6 @@ class squid::params {
 
       case $::operatingsystemrelease
       {
-        /^5.*$/:
-        {
-          $coredump_dir_default=undef
-          $builtin_acls = false
-          $client_package_name = undef
-        }
         /^6.*$/:
         {
           $coredump_dir_default='/var/spool/squid'

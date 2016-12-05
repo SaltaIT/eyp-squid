@@ -2,7 +2,7 @@
 
 ## 0.1.4
 
-* bugfix centos5
+* dropped centos5 support
 
 ## 0.1.3
 
