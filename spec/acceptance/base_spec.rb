@@ -28,5 +28,10 @@ describe 'squid class' do
       it { should be_listening }
     end
 
+    #/sbin/initctl --version
+    it "check init" do
+      expect(shell("/sbin/initctl --version").exit_code).to be_zero
+    end
+
   end
 end
