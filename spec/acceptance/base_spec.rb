@@ -8,7 +8,10 @@ describe 'squid class' do
     it 'should work with no errors' do
       pp = <<-EOF
 
-      class { 'squid': }
+      class { 'squid':
+        visible_hostname => 'testsquid',
+        disable_cache => true,
+      }
 
       EOF
 
