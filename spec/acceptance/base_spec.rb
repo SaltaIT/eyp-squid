@@ -4,6 +4,11 @@ require_relative './version.rb'
 describe 'squid class' do
 
   context 'basic setup' do
+
+    it "workarround for ubuntu14.04 docker image" do
+      expect(shell("lsb_release -a | grep trusty; if [ $? -eq 0 ]; then mv /sbin/initctl /sbin/oldinitctl; echo -e '#!/bin/bash\nif [ $1 == \"--version\" ]\nthen\n  echo \"initctl (upstart 1.12.1)\"\nfi\n/sbin/oldinitctl \"$@\"' > /sbin/initctl; chmod 755 /sbin/initctl; fi").exit_code).to be_zero
+    end
+
     # Using puppet_apply as a helper
     it 'should work with no errors' do
       pp = <<-EOF
