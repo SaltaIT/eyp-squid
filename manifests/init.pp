@@ -29,6 +29,12 @@ class squid (
               $manager_default_rule          = 'deny',
               $install_client                = true,
               $visible_hostname              = undef,
+              $configure_logrotate           = true,
+              $logrotate_rotate              = '4',
+              $logrotate_compress            = true,
+              $logrotate_missingok           = true,
+              $logrotate_notifempty          = true,
+              $logrotate_frequency           = 'weekly',
             ) inherits squid::params{
 
   class { '::squid::install': } ->
