@@ -9,7 +9,7 @@ http_port <%= @port %>
 # disable cache
 cache deny all
 <% else -%>
-# cache_dir ufs <Directory-Name> <Mbytes> <L1> <L2>
+# cache_dir <type> <dir> <mbytes> <L1> <L2>
 cache_dir <%= @cache_format %> <%= @cache_dir %> <%= @cache_size_mb %> <%= @cache_l1 %> <%= @cache_l2 %>
 <%- end -%>
 
