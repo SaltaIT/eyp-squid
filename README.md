@@ -142,8 +142,17 @@ Internal Data Structures:
 
 ## Usage
 
-Put the classes, types, and resources for customizing, configuring, and doing
-the fancy stuff with your module here.
+accesslog/logformat:
+
+```puppet
+squid::logformat { 'squid-demo':
+  format => 'timestamp="%{%Y-%m-%dT%H:%M:%S%z}tg" vendor="Squid" src=%>a url="%>ru" src_ip=%">a status=%<Hs http_user_agent="%{User-Agent}>h" http_method=%>rm http_content_type=%mt http_content_type_raw="%{Content-Type}<h" bytes_in=%<st bytes_out=%>st user=%un http_referer="%{Referer}>h" uri_path="%rp" url_port=%<p uri_scheme=%>rs duration=%<tt dest_port=%<p src_port=%>p dest_ip=%<a proxy_ip=%<la proxy_dest_port=%>lp proxy_src_port=%<lp dest_host=%{Host}>h',
+}
+
+squid::accesslog { '/var/log/squid/access.log':
+  logformat => 'squid-demo',
+}
+```
 
 ## Reference
 
