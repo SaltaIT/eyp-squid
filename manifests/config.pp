@@ -7,6 +7,7 @@
 # 00 - header
 # 50 - allow domain
 # 60 - deny domain
+# 79 - logformat
 # 80 - accesslog
 # 99 - tail
 class squid::config inherits squid {

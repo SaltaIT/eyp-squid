@@ -3,6 +3,7 @@
 ## 0.1.5
 
 * added **squid::accesslog**
+* added **squid::logformat**
 
 ## 0.1.4
 
