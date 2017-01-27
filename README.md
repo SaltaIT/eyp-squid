@@ -17,9 +17,7 @@
 
 ## Overview
 
-A one-maybe-two sentence summary of what the module does/what problem it solves.
-This is your 30 second elevator pitch for your module. Consider including
-OS/Puppet version it works with.
+squid management
 
 ## Module Description
 
@@ -64,6 +62,26 @@ squid::logformat { 'squid-demo':
 
 squid::accesslog { '/var/log/squid/access.log':
   logformat => 'squid-demo',
+}
+```
+
+allow/deny domains:
+
+```puppet
+squid::domain { '.systemadmin.es':
+  action => 'allow',
+}
+
+squid::domain { '.facebook.com':
+  action => 'deny',
+}
+
+squid::domain { '.meneame.net':
+  action => 'deny',
+}
+
+squid::domain { '.twitter.com':
+  action => 'deny',
 }
 ```
 
