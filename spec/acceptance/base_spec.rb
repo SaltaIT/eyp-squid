@@ -46,5 +46,9 @@ describe 'squid class' do
       expect(shell("netstat -tpln").exit_code).to be_zero
     end
 
+    it "squid configtest" do
+      expect(shell("squid -k check").exit_code).to be_zero
+    end
+
   end
 end
