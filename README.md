@@ -46,7 +46,7 @@ class { 'squid':
 
 ## Usage
 
-accesslog/logformat:
+### accesslog/logformat
 
 ```puppet
 squid::logformat { 'squid-demo':
@@ -58,7 +58,7 @@ squid::accesslog { '/var/log/squid/access.log':
 }
 ```
 
-allow/deny domains:
+### allow/deny domains
 
 ```puppet
 squid::domain { '.systemadmin.es':
@@ -78,7 +78,7 @@ squid::domain { '.twitter.com':
 }
 ```
 
-acl management:
+### acl management
 
 ```puppet
 squid::acl { 'RHEL-UpdateServers':
@@ -94,7 +94,7 @@ acl RHEL-UpdateServers dst subscription.rhn.redhat.com
 acl RHEL-UpdateServers dst subscription.rhsm.redhat.com
 ```
 
-squidclient example:
+### squidclient example
 ```
 # squidclient -h 127.0.0.1 -p 3128 mgr:info
 HTTP/1.1 200 OK
