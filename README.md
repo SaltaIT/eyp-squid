@@ -94,6 +94,17 @@ acl RHEL-UpdateServers dst subscription.rhn.redhat.com
 acl RHEL-UpdateServers dst subscription.rhsm.redhat.com
 ```
 
+### http_access management
+
+```puppet
+squid::httpaccess { 'RHEL-UpdateServers':
+}
+```
+
+```
+http_access allow RHEL-UpdateServers
+```
+
 ### squidclient example
 ```
 # squidclient -h 127.0.0.1 -p 3128 mgr:info
@@ -242,6 +253,22 @@ Internal Data Structures:
 
 * **format**:,
 * **logname**: = $name,
+
+#### httpaccess
+
+* **aclname**:        = $name,
+* **action**:         = 'allow',
+* **inverse**:        = false,
+* **description**:    = undef,
+* **order**:          = '0',
+
+#### acl
+
+* **type**:
+* **values**:
+* **aclname**:     = $name,
+* **order**:       = '0',
+* **description**: = undef,
 
 ## Limitations
 
