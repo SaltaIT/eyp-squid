@@ -11,7 +11,7 @@ define squid::acl (
                     $description = undef,
                   ) {
   # concat 30
-  concat::fragment{ "${squid::params::config_file} accesslog ${path}":
+  concat::fragment{ "${squid::params::config_file} ACL ${aclname}/${name}":
     target  => $squid::params::config_file,
     order   => "30${order}",
     content => template("${module_name}/acl.erb"),

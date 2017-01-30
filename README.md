@@ -78,6 +78,22 @@ squid::domain { '.twitter.com':
 }
 ```
 
+acl management:
+
+```puppet
+squid::acl { 'RHEL-UpdateServers':
+  type => 'dst',
+  values => [ 'subscription.rhn.redhat.com', 'subscription.rhsm.redhat.com' ],
+}
+```
+
+this generates the following ACLs:
+
+```
+acl RHEL-UpdateServers dst subscription.rhn.redhat.com
+acl RHEL-UpdateServers dst subscription.rhsm.redhat.com
+```
+
 squidclient example:
 ```
 # squidclient -h 127.0.0.1 -p 3128 mgr:info
