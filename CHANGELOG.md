@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.7
+
+* updated user defined rules banner
+
 ## 0.1.6
 
 * modified **squid::httpaccess** to allow multiple ACLs
