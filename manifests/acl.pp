@@ -4,8 +4,8 @@
 # acl HOST-systemadmin.es src 1.2.3.4
 #
 define squid::acl (
-                    $type,
                     $values,
+                    $type        = 'src',
                     $aclname     = $name,
                     $order       = '0',
                     $description = undef,

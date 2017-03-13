@@ -263,8 +263,8 @@ Internal Data Structures:
 
 #### acl
 
-* **type**:
 * **values**:
+* **type**: (defalt: src)
 * **aclname**:     = $name,
 * **order**:       = '0',
 * **description**: = undef,
