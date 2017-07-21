@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.9
+
+* added **squid::followxff**
+
 ## 0.1.8
 
 * bugfix: Ubuntu 16 squid.conf file
