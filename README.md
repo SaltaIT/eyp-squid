@@ -39,9 +39,9 @@ This module requires pluginsync enabled
 
 ```puppet
 class { 'squid':
-		visible_hostname => 'example',
-		disable_cache => true,
-	}
+  visible_hostname => 'example',
+  disable_cache    => true,
+}
 ```
 
 basic hiera setup:
