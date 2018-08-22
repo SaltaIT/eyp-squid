@@ -46,7 +46,7 @@ class { 'squid':
 
 basic hiera setup:
 
-```
+```puppet
 ---
 classes:
   - squid
